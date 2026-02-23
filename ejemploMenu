@@ -1,0 +1,108 @@
+// ejemploMenu.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int suma(int a, int b); // prototipo
+void mayor(int a, int b, int c);
+int ciclo(int x);
+void pesototal(int cantidadProductos);
+
+int main() {
+    int opcion,a,b,c;
+
+    do {
+        cout << "1. La suma de dos numeros" << endl; // secuencial
+        cout << "2. Determinar el mayor de tres numeros\n"; // condicional
+        cout << "3. Calcular la serie con ciclo For\n"; // repetitiva
+        cout << "4. Calcular el peso total de productos\n";
+        cout << "0. Salir\n";
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            cout << "Ingresar el primer numero: ";
+            cin >> a;
+            cout << "Ingresar el segundo numero: ";
+            cin >> b;
+            cout<<"El resultado es: "<<suma(a, b)<<endl; // llamada de la funcion
+            break;
+
+        case 2: {
+            cout << "Introduce el primer numero: ";
+            cin >> a;
+            cout << "Introduce el segundo numero: ";
+            cin >> b;
+            cout << "Introduce el tercer numero: ";
+            cin >> c;
+            mayor(a, b, c);
+            break;
+        }
+        case 3: {
+            cout << "Introduce el valor de a: ";
+            cin >> a;
+            ciclo(a);
+            break;
+        }
+        case 4: {
+            cout << "Cuantos productos deseas ingresar? ";
+            cin >> a;
+            pesototal(a);
+            break;
+        }
+        case 0:
+            cout << "¡Hasta luego!\n";
+            return 0;
+            break;
+        default:
+            cout << "Opcion no valida. Intenta de nuevo.\n";
+            break;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+void mayor(int a, int b, int c) {
+
+    if (a == b && b == c) {
+        cout << "Todos los numeros son iguales.\n";
+    }
+    else if (a > b && a > c) {
+        cout << "El mayor numero es: " << a << endl;
+    }
+    else if (b > a && b > c) {
+        cout << "El mayor numero es: " << b << endl;
+    }
+    else {
+        cout << "El mayor numero es: " << c << endl;
+    }
+}
+
+int ciclo(int x) {
+    double suma = 0;
+    for (int b = 1; b <= 10; ++b) {
+        suma += pow(x, b);
+    }
+    cout << "La suma total de la serie es: " << suma << endl;
+    return suma;
+}
+
+void pesototal(int cantidadProductos) {
+    double pesoTotal = 0.0;
+    for (int i = 1; i <= cantidadProductos; i++) {
+        double peso;
+        cout << "Ingresa el peso del producto " << i << " (en gramos): ";
+        cin >> peso;
+        pesoTotal += peso;
+    }
+    cout << "El peso total de los productos es: " << pesoTotal << " gramos.\n";
+ 
+}
+int suma(int a, int b) { // declaracion
+    return a + b;
+}
