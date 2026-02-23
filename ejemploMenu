@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <stdlib.h> //libreria para correr comandos de windows
 using namespace std;
 
 int suma(int a, int b); // prototipo
@@ -11,6 +12,7 @@ int ciclo(int x);
 void pesototal(int cantidadProductos);
 
 int main() {
+    system("color 76");
     int opcion,a,b,c;
 
     do {
@@ -54,14 +56,15 @@ int main() {
             break;
         }
         case 0:
-            cout << "¡Hasta luego!\n";
+            cout << "Hasta luego!\n";
             return 0;
             break;
         default:
             cout << "Opcion no valida. Intenta de nuevo.\n";
             break;
         }
-
+        system("pause");
+        system("cls");
     } while (opcion != 0);
 
     return 0;
@@ -106,3 +109,4 @@ void pesototal(int cantidadProductos) {
 int suma(int a, int b) { // declaracion
     return a + b;
 }
+
