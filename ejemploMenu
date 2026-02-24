@@ -8,7 +8,7 @@ using namespace std;
 
 int suma(int a, int b); // prototipo
 void mayor(int a, int b, int c);
-int ciclo(int x);
+void ciclo(int x);
 void pesototal(int cantidadProductos);
 
 int main() {
@@ -86,13 +86,13 @@ void mayor(int a, int b, int c) {
     }
 }
 
-int ciclo(int x) {
+void ciclo(int x) {
     double suma = 0;
     for (int b = 1; b <= 10; ++b) {
         suma += pow(x, b);
     }
     cout << "La suma total de la serie es: " << suma << endl;
-    return suma;
+    
 }
 
 void pesototal(int cantidadProductos) {
