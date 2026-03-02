@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double factorial(int n);
+double serie(double x, int n);
+
+int main()
+{
+    double x;
+    int n;
+
+    cout << "Ingresar x: " << endl;
+    cin >> x;
+
+    cout << "Ingresar n: " << endl;
+    cin >> n;
+
+    cout << "El resultado de la serie es: " << serie(x, n) << endl;
+
+    return 0;
+}
+
+double factorial(int n) {
+    double fact = 1;
+    for(int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+double serie(double x, int n) {
+    if (n == 1) {
+        return x;
+    }
+    else {
+        return serie(x, n - 1) + pow(-1, n + 1) * pow(x, n) / factorial(n);
+    }
+}
