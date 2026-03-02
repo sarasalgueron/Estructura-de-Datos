@@ -1,0 +1,92 @@
+// ejemploRecursivo2.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int factorial(int n);
+double serie(double x, int n);
+int valor(char c);
+int baseADecimal(string numero, int base, int indice);
+
+int main()
+{
+    int opcion = 1;
+    int num;
+    int n;
+    string numero;
+    do {
+        cout << "------ MENU ------" << endl;
+        cout << "1. Calcular factorial"<<endl;
+        cout << "2. Calcular serie" << endl;
+        cout << "3. Transformar de base n a decimal" << endl;
+        cout << "0. Salir" << endl;
+
+        cout << "Ingrese opcion: " << endl;
+        cin >> opcion;
+
+        switch(opcion) {
+        case 1:
+            cout << "Ingrese el numero a calcular el factorial: " << endl;
+            cin >> num;
+            cout << "El factorial de " << num << " es: " << factorial(num)<<endl;
+            break;
+        case 2:
+            cout << "Ingrese la base: " << endl;
+            cin >> num;
+            cout << "Ingrese la cantidad de terminos: " << endl;
+            cin >> n;
+            cout << "El resultado de la serie con base " << num << " y con " << n << " terminos es: " << serie(num, n)<<endl;
+            break;
+        case 3:
+            cout << "Ingrese el numero: " << endl;
+            cin >> numero;
+
+            cout << "Ingrese la base: " << endl;
+            cin >> num;
+
+            cout << "El numero " << numero << " con base " << num << " en decimal es: " << baseADecimal(numero, num, 0) << endl;
+            break;
+        case 0:
+            cout << "Saliendo..." << endl;
+            break;
+        default:
+            cout << "Ingrese una opcion valida: " << endl;
+        }
+
+        
+
+    } while (opcion != 0);
+
+    
+    return 0;
+}
+
+
+int factorial(int n) {
+    if ((n == 0) || (n == 1))
+        return 1;
+    else
+        return factorial(n - 1) * n;
+}
+double serie(double x, int n) {
+    if (n == 1)
+        return x;
+    else
+        return serie(x, n - 1) + pow(-1, n + 1) * pow(x, n) / factorial(n);
+}
+int valor(char c) {
+    if (c >= '0' && c <= '9')
+        return c - '0';
+    else if (c >= 'A' && c <= 'Z')
+        return c - 'A' + 10;
+    else if (c >= 'a' && c <= 'z')
+        return c - 'a' + 10;
+    return -1;
+} 
+int baseADecimal(string numero, int base, int indice) {
+    if (indice == numero.length())
+        return 0;
+    return valor(numero[indice]) * pow(base, numero.length() - indice - 1) + baseADecimal(numero, base, indice + 1);
+}
