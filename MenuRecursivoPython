@@ -1,0 +1,58 @@
+# Menu con opciones con funcion recursiva de factorial, propia y otra
+
+def factorial(n):
+    if (n == 0) or (n == 1):
+        return 1
+    else:
+        return n*factorial(n-1)
+
+def serie(x, n):
+    if (n == 1):
+        return x
+    else:
+        return serie(x,n-1) + pow(-1,n+1) * pow(x,n) / factorial(n)
+    
+def valor(c):
+    if '0' <= c <= '9':
+        return ord(c) - ord('0')
+    elif 'A' <= c <= 'Z':
+        return ord(c) - ord('A') + 10
+    
+    elif 'a' <= c <= 'z':
+        return ord(c) - ord('a') + 10
+    return -1
+
+def baseDecimal(numero, base, indice):
+    if (indice == len(numero)):
+        return 0
+    return valor(numero[indice]) * pow(base, len(numero) - indice - 1) + baseDecimal(numero, base, indice + 1)
+while(True):
+    print("----- MENU -----")
+    print("1. Calcular factorial")
+    print("2. Calcular serie")
+    print("3. Calcular equivalente a decimal")
+    print("0. Salir")
+    opcion = int(input("Ingrese una opcion:"))
+
+    match opcion:
+        case 1:
+            num = int(input("Ingrese un numero para calcular su factorial: "))
+            print(f'El factorial es {factorial(num)}')
+           
+        case 2:
+            base = int(input("Ingrese la base: "))
+            n = int(input("Ingrese n: "))
+            print(f'El resultado de la serie es: {serie(base,n)}')
+           
+        case 3:
+            num = input("Ingrese un numero: ")
+            base = int(input("Ingrese la base: "))
+            print(f'El numero {num} con base {base} en decimal es {baseDecimal(num,base,0)}')
+          
+        case 0:
+            print("Saliendo...")
+            break
+        case _:
+            print("Ingrese opcion valida")
+          
+        
