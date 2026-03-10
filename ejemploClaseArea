@@ -1,0 +1,12 @@
+// ejemploClaseArea.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include "Triangulo.h"
+using namespace std;
+int main()
+{
+	Triangulo triangulito;
+	cout << "El area del triangulo es: " << triangulito.calculararea(5, 6);
+	return 0;
+}
