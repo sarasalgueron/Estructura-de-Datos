@@ -1,0 +1,23 @@
+// ejemploClaseHolaMundo.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+
+using namespace std;
+
+
+class Saludo {
+    private: // atributos
+        string mensaje = "Hola Mundo";
+    public: // metodos
+        void mostrar() {
+            cout << mensaje;
+        }
+};
+int main()
+{
+    // Declarar un objeto de la clase Saludo se llama saludito
+    Saludo saludito;
+    saludito.mostrar(); // utilizacion de un metodo de la clase
+    return 0;
+}
