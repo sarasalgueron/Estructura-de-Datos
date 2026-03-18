@@ -1,0 +1,134 @@
+#include <iostream>
+
+#define MAXCOL 20
+#define MAXROW 20
+
+using namespace std;
+void cargar(int matrix[MAXROW][MAXCOL], int n, int m);
+void mostrar(int matrix[MAXROW][MAXCOL], int n, int m);
+void matrizCuadrada(int matrix[MAXROW][MAXROW], int n);
+void mostrarMatriz(int matrix[MAXROW][MAXROW], int n);
+
+
+int main()
+{
+	int tamrow, tamcol, matrix[MAXROW][MAXCOL], opcion;
+	do {
+		cout << "Ingrese el numero de filas: ";
+		cin >> tamrow;
+	} while ((tamrow <= 0) || (tamrow > MAXROW));
+
+	do {
+		cout << "Ingrese el numero de columnas: ";
+		cin >> tamcol;
+	} while ((tamcol <= 0) || (tamcol > MAXCOL));
+
+	do {
+		cout << "----- MENU -----" << endl; // 6
+		cout << "1. Cargar" << endl;
+		cout << "2. Mostrar" << endl;
+		cout << "3. Cargar matriz cuadrada de forma circular con los primeros numeros naturales" << endl;
+		cout << "0. Salir" << endl;
+
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cargar(matrix, tamrow, tamcol);
+			break;
+		case 2:
+			mostrar(matrix, tamrow, tamcol);
+			break;
+		case 3:
+			matrizCuadrada(matrix, tamrow);
+			mostrarMatriz(matrix, tamrow);
+		case 0:
+			cout << "Saliendo..." << endl;
+			break;
+		default:
+			cout << "Ingresar una opcion valida" << endl;
+		}
+
+	} while (opcion != 0);
+
+}
+
+void cargar(int matrix[MAXROW][MAXCOL], int n, int m) {
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < m; j++) {
+			cout << "matrix[" << i + 1 << "][" << j + 1 << "]:" << endl;
+			cin >> matrix[i][j];
+		}
+}
+
+void mostrar(int matrix[MAXROW][MAXCOL], int n, int m) {
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < m; j++)
+			cout << "matrix[" << i + 1 << "][" << j + 1 << "]: " << matrix[i][j] << endl;
+
+}
+
+void matrizCuadrada(int matrix[MAXROW][MAXROW], int n)
+{
+	int derecha = 0; // filas (++)
+	int izquierda = n - 1; // (--)
+	int abajo = n - 1; // columnas (--)
+	int arriba = 0; // (++)
+	int num = 1;
+	bool derechaB, izquierdaB, abajoB, arribaB;
+
+	
+	derechaB = true;
+	izquierdaB = false;
+	abajoB = false;
+	arribaB = false;
+
+	while (arriba <= abajo && derecha <= izquierda) {
+		if (derechaB) {
+				for (int j = arriba;j <= abajo;j++) {
+					matrix[derecha][j] = num;
+					num++;
+				}
+			
+			derecha++;
+			derechaB = false;
+			abajoB = true;
+		}
+		else if (abajoB) {
+			for (int i = derecha;i <= abajo;i++) {
+					matrix[i][abajo] = num;
+					num++;
+			}
+			abajo--;
+			abajoB = false;
+			izquierdaB = true;
+		}
+		else if (izquierdaB) {
+			for (int j = abajo;j >= arriba;j--) {
+				matrix[izquierda][j] = num;
+				num++;
+			}
+			izquierda--;
+			izquierdaB = false;
+			arribaB = true;
+		}
+		else if (arribaB) {
+			for (int i = izquierda;i>=derecha;i--) {
+				matrix[i][arriba] = num;
+				num++;
+				
+			}
+			arriba++;
+			arribaB = false;
+			derechaB = true;
+		}
+	}
+
+
+
+}
+void mostrarMatriz(int matrix[MAXROW][MAXROW], int n) {
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+			cout << "matrix[" << i + 1 << "][" << j + 1 << "]: " << matrix[i][j] << endl;
+
+}
