@@ -1,42 +1,22 @@
+#pragma once
+#define MAX 10
 #include <iostream>
-#include "Vector.h"
-
+#include <string>
 using namespace std;
+class Vector
 
-Vector::Vector(void)
 {
-	vec[10] = 0;
-	n = 0;
-}
+	private:
+		string datos[MAX];
+		int n;
+	public:
+		Vector();
+		void cargarVector(int tam);
+		void mostrarVector();
+		void setN(int tam);
+		int getN();
+		void setDato(int pos, string dato);
+		string getDato(int pos);
 
+};
 
-Vector::~Vector(void)
-{
-}
-
-void Vector::cargarVector(int vec[], int n) {
-	for (int i = 0; i < n; i++) {
-		cout << "vec[" << i << "] =";
-		cin >> vec[i];
-	}
-}
-
-void Vector::mostrarVector(int vec[], int n) {
-	for (int i = 0; i < n; i++) {
-		cout << vec[i] << ", ";
-	}
-	cout << endl;
-}
-
-void Vector::ordenarVector(int vec[], int n) {
-	int aux;
-	for (int i = 0; i < (n - 1); i++) {
-		for (int j = i; j < n; j++) {
-			if (vec[i] > vec[j]) {
-				aux = vec[i];
-				vec[i] = vec[j];
-				vec[j] = aux;
-			}
-		}
-	}
-}
