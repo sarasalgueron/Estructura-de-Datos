@@ -9,7 +9,7 @@ Pila::Pila()
     cima = -1;
 }
 
-bool Pila::Apilar(int& elemento)
+bool Pila::Apilar(string& elemento)
 {
     bool res;
     if (cima == MAX - 1)
@@ -56,12 +56,11 @@ void Pila::VerPila()
 }
 
 
-int Pila::CimaPila()
+string Pila::CimaPila()
 {
     if (PilaVacia())//(cima == -1)
     {
         cerr << "Se esta intentando quitar un elemento de una pila vacia (underflow)" << endl;
-        return -1;
     }
     else
 

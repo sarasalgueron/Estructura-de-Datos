@@ -1,17 +1,18 @@
 #pragma once
-
+using namespace std;
+#include <string>
 #define MAX 100
 class Pila
 {
 private:
-    int pila[MAX];
+    string pila[MAX];
     int cima;
 
 public:
     Pila();
-    bool Apilar(int& elemento);
+    bool Apilar(string& elemento);
     bool Desapilar();
-    int CimaPila();
+    string CimaPila();
     void LimpiarPila();
     void VerPila();
     bool PilaVacia();
