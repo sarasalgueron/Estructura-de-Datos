@@ -1,0 +1,156 @@
+// ejemploString.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+using namespace std; 
+
+#include <iostream>
+#include <string>
+
+int contarVocales(string s);
+int longitud(string s);
+string extraerParte(string s, int pos);
+void intercambioString(string s, string s2);
+bool compararString(string  s, string s2);
+int encontrarCaracter(string s, char c);
+string invertirString(string s);
+bool esCapicua(string s, string i);
+string quitarVocales(string s);
+
+int main()
+{
+	string s = "";
+	string s2 = "";
+	string inv = "";
+	char c = ' ';
+	int pos = -1;
+	cout << "Porfavor ingresar un string" << endl;
+	getline(cin, s);
+	int opcion = -1;
+	do {
+		cout << "----- MENU -----" << endl;
+		cout << "1. Contar vocales" << endl;
+		cout << "2. Longitud de un string" << endl;
+		cout << "3. Extraer una parte" << endl;
+		cout << "4. Intercambio de string" << endl;
+		cout << "5. Comparar string" << endl;
+		cout << "6. Encontrar un caracter" << endl;
+		cout << "7. Invertir" << endl;
+		cout << "8. Determinar si es capicua" << endl;
+		cout << "9. Quitar vocales" << endl;
+		cout << "0. Salir" << endl;
+		cin >> opcion;
+
+		switch (opcion)
+		{
+		case 0:
+			cout << "Saliendo..." << endl;
+			break;
+		case 1:
+			cout << "La cantidad de vocales son: " << contarVocales(s) << endl;
+			break;
+		case 2:
+			cout << "La longitud del string es " << longitud(s) << endl;
+			break;
+		case 3:
+			cout << "Ingresar posicion a extraer: " << endl;
+			cin >> pos;
+			cout << "El nuevo string es: " << extraerParte(s, pos) << endl;
+			break;
+		case 4:
+			cout << "Ingrese el nuevo string para hacer intercambio: " << endl;
+			cin.ignore();
+			getline(cin, s2);
+			intercambioString(s, s2);
+			break;
+		case 5:
+			cout << "Ingrese el nuevo string para comparar: " << endl;
+			cin.ignore();
+			getline(cin, s2);
+			cout << "Los strings coinciden ? " << compararString(s, s2) << endl;
+			break;
+		case 6:
+			cout << "Ingrese el caracter a encontrar: " << endl;
+			cin.ignore();
+			cin >> c;
+			cout << "El caracter se encontro en la posicion: " << encontrarCaracter(s, c) << endl;
+			break;
+		case 7:
+			inv = invertirString(s);
+			cout << "El string invertido es: " << inv << endl;
+			break;
+		case 8:
+			cout << "El string es capicua ? " << esCapicua(s, inv) << endl;
+			break;
+		case 9:
+			cout << "El nuevo string es: " << quitarVocales(s) << endl;
+			break;
+		default:
+			cout << "Ingresar una opcion valida" << endl;
+		}
+	} while (opcion != 0);
+
+}
+int contarVocales(string s) {
+	int cont = 0;
+	for (int i = 0; i < s.length(); i++)
+		if (s.at(i) == 'a' || s.at(i) == 'e' || s.at(i) == 'i' || s.at(i) == 'o' || s.at(i) == 'u')
+			cont++;
+	return cont;
+}
+int longitud(string s) {
+	return s.length();
+
+}
+string extraerParte(string s, int pos) {
+	return s.substr(pos, s.length() - pos);
+}
+void intercambioString(string s, string var) {
+	// Intercambia string
+	s.swap(var);
+	cout << s<<endl;
+	cout << var<<endl;
+}
+bool compararString(string  s, string s2) {
+
+	if (s.compare(s2) == 0)
+		return true;
+	else
+		return false;
+
+}
+int encontrarCaracter(string s, char c) {
+	//Encuentra caracteres en string
+	int pos = -1;
+	for (int i = 0; i < s.length(); i++)
+		if (s.at(i) == c)
+			pos = i;
+	return pos;
+}
+string invertirString(string s) {
+	char aux;
+	string var = s;
+	int longitud = s.length();
+	for (int i = 0; i < longitud / 2; i++)
+	{
+		aux = s[i];
+		s[i] = s[longitud - 1 - i];
+		s[longitud - 1 - i] = aux;
+	}
+	return s;
+}
+bool esCapicua(string s, string i) {
+	if (i.compare(s) == 0)
+		return true;
+	return false;
+
+}
+string quitarVocales(string s) {
+	//Quitar las vocales
+	string var = "";
+	for (int i = 0; i < s.length(); i++)
+		if (s[i] != 'a' && s[i] != 'e' && s[i] != 'i' && s[i] != 'o' && s[i] != 'u')
+		{
+			var += s[i];
+		}
+	return var;
+}
