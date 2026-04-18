@@ -1,107 +1,99 @@
 #include "Pila.h"
 #include <iostream>
-#include "pila.h"
-
+#include <string>
 using namespace std;
-
-Pila::Pila()
-{
-    cima = -1;
+Pila::Pila() {
+    inicio = NULL;
+}
+void Pila::push() {
+    int valor;
+    string valor2;
+    Nodo* aux = new Nodo;
+    // ubica espacio de memoria para crear una instancia del nodo: operator new (nodo))
+   // y entonces construye un objeto en el nuevo espacio ubicado
+    system("cls");
+    cout << "Ingresa el id del proceso: ";
+    cin >> valor;
+    cout << "Ingresa el nombre del proceso: ";
+    cin.ignore();
+    getline(cin, valor2);
+    aux->dato = valor;
+    aux->nombre = valor2;
+    aux->sig = NULL;
+    //Accede al elemento dato de nodo y le asigna valor.
+    if (inicio != NULL)
+        aux->sig = inicio;
+    inicio = aux;
+    cout << "Nuevo proceso insertado en la pila!\n";
+    system("pause");
 }
 
-bool Pila::Apilar(string& elemento)
-{
-    bool res;
-    if (cima == MAX - 1)
-    {
-        cout << "Desbordamiento de Pila (Overflow)" << endl;
-        res = false;
+void Pila::pop() {
+    Nodo* temp = new Nodo;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
     }
-    else
-
-    {
-        cima++;
-        pila[cima] = elemento;
-        res = true;
+    else {
+        temp = inicio;
+        inicio = inicio->sig;
+        system("cls");
+        cout << "\nEl proceso eliminado es: " << temp->dato << " - " << temp->nombre << "\n" << endl;
+        delete temp;
+        system("pause");
     }
-    return res;
-
-
 }
 
-bool Pila::Desapilar()
-{
-    bool res;
-    if (cima == -1)
-    {
-        cerr << "Se esta intentando quitar un elemento de una pila vacia (underflow)" << endl;
-        res = false;
+void Pila::show() {
+    Nodo* aux1 = inicio;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
     }
-    else
-
-    {
-        cima--;
-        res = true;
-    }
-    return res;
-
-
-}
-
-void Pila::VerPila()
-{
-    for (int i = 0; i <= cima; i++)
-        cout << pila[i] << endl;
-
-}
-
-
-string Pila::CimaPila()
-{
-    if (PilaVacia())//(cima == -1)
-    {
-        cerr << "Se esta intentando quitar un elemento de una pila vacia (underflow)" << endl;
-    }
-    else
-
-    {
-        return pila[cima];
-    }
-
-}
-
-bool Pila::PilaVacia()
-{
-    return cima == -1;
-}
-
-void Pila::LimpiarPila()
-{
-    cima = -1;
-}
-
-
-bool Pila::Iguales(Pila p)
-{
-    //int a, b;
-    //int array[MAX];
-
-    bool iguales = false;
-
-    int i = cima;
-    if (cima == p.getCima()) {
-        while ((i >= 0) && (p.CimaPila() == pila[i]))
-        {
-            i--;
-            p.Desapilar();
+    else {
+        system("cls");
+        cout << "Procesos:\n" << endl;
+        while (aux1 != NULL) {
+            cout << aux1->dato << " - " << aux1->nombre << "\n" << endl;
+            aux1 = aux1->sig;
         }
-        if (i < 0 && p.PilaVacia()) {
-            iguales = true;
-        }
+        system("pause");
     }
+}
 
-    return iguales;
+void Pila::top() {
+    Nodo* aux1 = inicio;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
+    }
+    else {
+        system("cls");
+        cout << "Proceso TOP:\n" << endl;
+        cout << aux1->dato << " - " << aux1->nombre << "\n" << endl;
+        system("pause");
+    }
 }
-int Pila::getCima() {
-    return cima;
+
+void Pila::size() {
+    Nodo* aux1 = inicio;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
+    }
+    else {
+        int contador = 0;
+        while (aux1) {
+            contador++;
+            aux1 = aux1->sig;
+        }
+        system("cls");
+        cout << "El tamano de la pila es: '" << contador << "'\n" << endl;
+        system("pause");
+    }
 }
+

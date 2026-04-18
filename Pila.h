@@ -1,22 +1,16 @@
 #pragma once
+#include <iostream>
+#include "Nodo.h"
 using namespace std;
-#include <string>
-#define MAX 100
 class Pila
 {
-private:
-    string pila[MAX];
-    int cima;
-
+	Nodo* inicio;
 public:
-    Pila();
-    bool Apilar(string& elemento);
-    bool Desapilar();
-    string CimaPila();
-    void LimpiarPila();
-    void VerPila();
-    bool PilaVacia();
-    bool Iguales(Pila p);
-    int getCima();
-
+	Pila();
+	void push();
+	void pop();
+	void show();
+	void top();
+	void size();
 };
+
