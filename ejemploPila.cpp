@@ -5,32 +5,60 @@
 using namespace std;
 int main()
 {
-    Pila a;
-    Pila b;
-    //int n;
-    //do {
-        //cout << "Ingrese numero de elementos de la pila";
-        //cin >> n;
-    //} while (n > 0 || n <= 0);
+	Pila p;
+	Pila p2;
+	int opcion;
+	int elemento;
+	do {
+		cout << "----- MENU -----"<<endl;
+		cout << "1. Apilar" << endl;
+		cout << "2. Desapilar" << endl;
+		cout << "3. Mostrar pila" << endl;
+		cout << "4. Mostrar cima"<<endl;
+		cout << "5. Limpiar pila" << endl;
+		cout << "6. Ver si dos pilas son iguales" << endl;
+		cout << "0. Salir" << endl;
+		cin >> opcion;
 
+		switch (opcion) {
+		case 1:
+			cout << "Ingrese el elemento a colocar en la pila: " << endl;
+			cin >> elemento;
+			p.Apilar(elemento);
+			break;
+		case 2:
+			p.Desapilar();
+			break;
+		case 3:
+			p.VerPila();
+			break;
+		case 4:
+			cout<<"El elemento en la cima de la pila es: "<<p.CimaPila()<<endl;
+			break;
+		case 5:
+			p.LimpiarPila();
+			break;
+		case 6:
+			elemento = 1;
+			p2.Apilar(elemento);
+			elemento = 2;
+			p2.Apilar(elemento);
+			elemento = 3;
+			p2.Apilar(elemento);
 
-    int e = 6;
-    int e2 = 8;
-
-    a.Apilar(e);
-    a.Apilar(e2);
-    a.Apilar(e);
-    a.VerPila();
-
-    b.Apilar(e);
-    b.Apilar(e2);
-    b.VerPila();
-
-    bool res = a.Iguales(b);
-    if (res == true) {
-        cout << "Son iguales";
-    }
-    else {
-        cout << "No son iguales";
-    }
+			if (p.Iguales(p2)) {
+				cout << "Si son iguales" << endl;
+			}
+			else {
+				cout << "No son iguales" << endl;
+			}
+			break;
+		case 0:
+			cout << "Saliendo..." << endl;
+			break;
+		default:
+			cout << "Ingrese una opcion valida" << endl;
+			
+		}
+	} while (opcion != 0);
 }
