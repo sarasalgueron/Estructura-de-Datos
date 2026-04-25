@@ -1,0 +1,12 @@
+#pragma once
+#include "Cancion.h"
+class Nodo
+{
+public:
+    Cancion cancion;
+    Nodo* puntero;
+
+    Nodo() { //Constructor de la clase
+        puntero = NULL;
+    }
+};
