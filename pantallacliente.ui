@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PantallaCliente</class>
+ <widget class="QDialog" name="PantallaCliente">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>548</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #F5EEE6;</string>
+  </property>
+  <widget class="QLabel" name="TITULO4">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>20</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					color: #7D5A5A;
+					font-family: Georgia;
+					font-size: 20px;
+					font-style: italic;
+					font-weight: bold;
+				</string>
+   </property>
+   <property name="text">
+    <string>NAIL STUDIO</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="t43">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>40</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					color: #7D5A5A;
+					font-family: Georgia;
+					font-size:  16px;
+					font-style: italic;
+					font-weight: bold;
+				</string>
+   </property>
+   <property name="text">
+    <string>Bienvenida,Cliente</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="t42">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>60</y>
+     <width>381</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					color: #7D5A5A;
+					font-family: Georgia;
+					font-size: 16px;
+					font-style: italic;
+					font-weight: bold;
+				</string>
+   </property>
+   <property name="text">
+    <string>&quot;Tu belleza comienza con un detalle&quot; </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Gestion">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>100</y>
+     <width>291</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					color: #7D5A5A;
+					font-family: Georgia;
+					font-size: 18px;
+					font-style: italic;
+					font-weight: bold;
+				</string>
+   </property>
+   <property name="text">
+    <string>GESTIÓN DE CITAS   :</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnVerCitas">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>240</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					QPushButton {
+					background-color: #C9A0A0;
+					color: #FFF8F3;
+					border-radius: 10px;
+					padding: 8px;
+					font-size: 13px;
+					font-family: Segoe UI;
+					}
+
+					QPushButton:hover {
+					background-color: #B88B8B;
+					}
+				</string>
+   </property>
+   <property name="text">
+    <string>Mi historial</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnReservarCita">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>140</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					QPushButton {
+					background-color: #C9A0A0;
+					color: #FFF8F3;
+					border-radius: 10px;
+					padding: 8px;
+					font-size: 13px;
+					font-family: Segoe UI;
+					}
+
+					QPushButton:hover {
+					background-color: #B88B8B;
+					}
+				</string>
+   </property>
+   <property name="text">
+    <string>Reservar nueva cita</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnPerfil">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					QPushButton {
+					background-color: #C9A0A0;
+					color: #FFF8F3;
+					border-radius: 10px;
+					padding: 8px;
+					font-size: 13px;
+					font-family: Segoe UI;
+					}
+
+					QPushButton:hover {
+					background-color: #B88B8B;
+					}
+				</string>
+   </property>
+   <property name="text">
+    <string>Mi perfil</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnSalir">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>10</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					QPushButton {
+					background-color: #C9A0A0;
+					color: #FFF8F3;
+					border-radius: 10px;
+					padding: 8px;
+					font-size: 13px;
+					font-family: Segoe UI;
+					}
+
+					QPushButton:hover {
+					background-color: #B88B8B;
+					}
+				</string>
+   </property>
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCitaspendientes">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>190</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					QPushButton {
+					background-color: #C9A0A0;
+					color: #FFF8F3;
+					border-radius: 10px;
+					padding: 8px;
+					font-size: 13px;
+					font-family: Segoe UI;
+					}
+
+					QPushButton:hover {
+					background-color: #B88B8B;
+					}
+				</string>
+   </property>
+   <property name="text">
+    <string>Mis citas pendientes</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnChatBot">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>290</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+					QPushButton {
+					background-color: #C9A0A0;
+					color: #FFF8F3;
+					border-radius: 10px;
+					padding: 8px;
+					font-size: 13px;
+					font-family: Segoe UI;
+					}
+
+					QPushButton:hover {
+					background-color: #B88B8B;
+					}
+				</string>
+   </property>
+   <property name="text">
+    <string>Chatbot</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

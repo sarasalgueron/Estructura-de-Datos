@@ -1,35 +1,64 @@
+#pragma once
+#include "Nodo.h"
 #include <iostream>
 using namespace std;
-#define MAX_SIZE 256 /* capacidad máxima */
-typedef char almacen[MAX_SIZE];
-
+template <typename T>
 class Cola {
-
-    int cabeza; /* puntero de lectura */
-    int cola; /* puntero de escritura */
-    int ITEMS; /* número de elementos en la lista */
-    int ITEMSIZE; /* tamaño de cada elemento */
-    almacen alma; /* el almacen */
+	Nodo <T>* inicio;
+	Nodo <T>* final;
+	int tamano;
 
 public:
-    // constructor
-    Cola();
+	Cola() {
+		inicio = NULL;
+		final = NULL;
+		tamano = 0;
+	}
+	Cola(const Cola& otra) {
+		inicio = NULL;
+		final = NULL;
+		tamano = 0;
+		Nodo<T>* temp = otra.inicio;
+		while (temp != NULL) {
+			encolar(temp->getDato());
+			temp = temp->getPuntero();
+		}
+	}
+	void encolar(T dato) {
+		// Se encola desde el final
+		Nodo <T>* nodo = new Nodo <T>(dato);
+		if (estaVacia()) {
+			inicio = nodo;
+		}
+		else {
+			final->setPuntero(nodo);
+		}
+		final = nodo;
+		tamano++;
+	}
+	void desencolar() {
+		// se desencola del inicio
+		if (estaVacia()) {
+			cout << "La cola esta vacia"<<endl;
+		}
+		else {
+			Nodo <T>* aux = inicio;
+			inicio = inicio->getPuntero();
+			delete aux;
 
-    // destructor
-    ~Cola();
-
-    // regresa 1 (true) si la lista está vacia
-    int empty();
-
-    // insertar elemento a la lista
-    int put(int d);
-
-    // retirar elemento de la lista
-    int get();
-
-    // regresa el n£mero de elementos en lista
-    int size();
-
-    void verCola();
-
-}; // fin de la clase Queue
+			if (inicio == NULL) {
+				final = NULL;
+			}
+			tamano--;
+		}
+	}
+	T verFrente() {
+		return inicio->getDato();
+	}
+	bool estaVacia() {
+		return (inicio == NULL);
+	}
+	int getTamano() {
+		return tamano;
+	}
+};

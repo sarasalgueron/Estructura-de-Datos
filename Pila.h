@@ -1,22 +1,48 @@
 #pragma once
+#include "Nodo.h"
+#include <iostream>
 using namespace std;
-#include <string>
-#define MAX 100
-class Pila
-{
-private:
-    string pila[MAX];
-    int cima;
+template <typename T>
+class Pila {
+	Nodo <T>* cima;
+	int tamano;
+public: 
+	Pila() {
+		cima = NULL;
+		tamano = 0;
+	}
+	void apilar(T dato) {
+		Nodo<T>* aux = new Nodo<T>(dato);
 
-public:
-    Pila();
-    bool Apilar(string& elemento);
-    bool Desapilar();
-    string CimaPila();
-    void LimpiarPila();
-    void VerPila();
-    bool PilaVacia();
-    bool Iguales(Pila p);
-    int getCima();
+		aux->setPuntero(cima);
+		cima = aux;
+		tamano++;
+	}
+	void desapilar() {
+		if (estaVacia()) {
+			cout << "La pila esta vacia" << endl;
+		}
+		else {
+			Nodo<T>* aux = cima;
+			cima = cima->getPuntero();
+			delete aux;
+			tamano--;
+		}
 
+	}
+	T verCima() {
+		if (estaVacia()) {
+			cout << "La pila esta vacia" << endl;
+			exit(1); // detiene el programa
+		}
+		else {
+			return cima->getDato();
+		}
+	}
+	bool estaVacia() {
+		return (cima == NULL);
+	}
+	int getTamano() {
+		return tamano;
+	}
 };
